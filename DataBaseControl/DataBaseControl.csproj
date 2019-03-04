@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5252FD26-1464-4BD0-8993-CED9F6D091CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataBaseControl</RootNamespace>
+    <AssemblyName>DataBaseControl</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.7.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.7.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.7.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLayer\Dtos\ChartDataDto.cs" />
+    <Compile Include="BusinessLayer\Dtos\GeneralData\IPersistenceDtos.cs" />
+    <Compile Include="BusinessLayer\Dtos\GeneralData\PersistenceDtos.cs" />
+    <Compile Include="BusinessLayer\Dtos\HijackingDomainDto.cs" />
+    <Compile Include="BusinessLayer\Dtos\HijackingTestResultDto.cs" />
+    <Compile Include="BusinessLayer\Dtos\SpeedTestResultDto.cs" />
+    <Compile Include="BusinessLayer\Dtos\TFCDNserverDto.cs" />
+    <Compile Include="BusinessLayer\Dtos\UserDto.cs" />
+    <Compile Include="BusinessLayer\Mapping.cs" />
+    <Compile Include="BusinessLayer\Services\GeneralServices\BaseService.cs" />
+    <Compile Include="BusinessLayer\Services\GeneralServices\IService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\ChartDataService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\HijackDomainService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\Interface\IChartDataService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\Interface\IHijackingDomainService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\Interface\IHijackingTestResultService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\Interface\ISpeedTestService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\Interface\ITFCDNserversService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\Interface\IUserService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\SpeedTestService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\TFCDNserversService.cs" />
+    <Compile Include="BusinessLayer\Services\IndependentServices\UserService.cs" />
+    <Compile Include="DataAccessLayer\Core\Context\IUnitOfWork.cs" />
+    <Compile Include="DataAccessLayer\Core\Context\MongoDbContext.cs" />
+    <Compile Include="DataAccessLayer\Core\Context\UnitOfWork.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\ChartDataRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\HijackingDomainRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\Interface\IChartDataRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\Interface\IHijackingDomainRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\Interface\IHijackingTestResultRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\Interface\IRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\Interface\IServerRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\Interface\ISpeedTestRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\Interface\IUserRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\Repository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\ServerRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\SpeedTestRepository.cs" />
+    <Compile Include="DataAccessLayer\Core\Repositories\UserRepository.cs" />
+    <Compile Include="DataAccessLayer\Entities\ChartDataEntities.cs" />
+    <Compile Include="DataAccessLayer\Entities\GeneralData\IPersistenceEntities.cs" />
+    <Compile Include="DataAccessLayer\Entities\GeneralData\PersistenceEntities.cs" />
+    <Compile Include="DataAccessLayer\Entities\HijackingDomainEntities.cs" />
+    <Compile Include="DataAccessLayer\Entities\HijackingTestResultEntities.cs" />
+    <Compile Include="DataAccessLayer\Entities\SpeedTestResultEntities.cs" />
+    <Compile Include="DataAccessLayer\Entities\TFCDNserversEntities.cs" />
+    <Compile Include="DataAccessLayer\Entities\UserEntities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ChartModel.cs" />
+    <Compile Include="ViewModel\DomainViewModel.cs" />
+    <Compile Include="ViewModel\ServerViewModel.cs" />
+    <Compile Include="ViewModel\UserViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,62 @@
+﻿
+@{
+	ViewBag.Title = "performance Results";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var id = ViewBag.id;
+}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />
+<link rel="stylesheet" href="~/Content/CustomCss/WaterFall.css" />
+<section id="main-content">
+	<section id="WaterFallContainer" class="wrapper"></section>
+</section>
+@Html.Partial("PartialView/DataInDetail")
+@section scripts
+{
+	<script src="~/Scripts/ToffsManagements/PerformancesResults.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
+	<script src="~/Scripts/ToffsFunctions/jquery.taginput.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
+		var id = "@id";
+		$(document).ready(function () {
+			//PerformancesResults.init();
+			PerformancesResults.PlotWaterfallChart(id);
+
+
+			var timeout = setInterval(function () {
+				$(function () {
+					$("#overlay").remove();
+				});
+				clearInterval(timeout);
+			}, 3000);
+			$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+		});
+
+
+		$(document).ajaxStart(function () {
+			$.blockUI({
+				message: '<div class="dice"><div class= "face first-face"><div class="dot"></div></div>' +
+					'<div class="face second-face"><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="face third-face"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>\n' +
+					'<div class="face fourth-face"><div class="column"><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="column"><div class="dot"></div><div class="dot"></div></div></div>' +
+					'<div class="face fifth-face"><div class="column"><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="column"><div class="dot"></div></div><div class="column"><div class="dot"></div><div class="dot"></div></div></div>\n' +
+					'<div class="face sixth-face"><div class="column"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="column"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div></div>\n\n' +
+					'<p>Wait, please...</p>'
+			});
+		}).ajaxStop($.unblockUI);
+		$(document).on('mouseenter', ".WaterFall", function () {
+			var $this = $(this);
+			if (this.offsetWidth < this.scrollWidth && !$this.attr('title')) {
+				$this.tooltip({
+					title: $this.text(),
+					placement: "bottom"
+				});
+				$this.tooltip('show');
+			}
+		});
+
+	</script>
+}

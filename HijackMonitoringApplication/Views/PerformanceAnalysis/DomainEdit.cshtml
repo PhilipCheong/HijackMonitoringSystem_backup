@@ -1,0 +1,92 @@
+﻿@{
+	ViewBag.Title = "Performance Test Configuration";
+}
+
+<link href="~/Content/CustomCss/DomainSetup.css" rel="stylesheet" />
+<section id="main-content">
+	<section class="wrapper">
+		@*<section class="wrapper">*@
+
+		@*</section>*@
+		<div class="row" style="width: 100%; display: contents">
+			<div class="col-lg-12 col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2><i class="fa fa-flag-o red"></i><strong>Monitor Configuration</strong></h2>
+					</div>
+					<div class="panel-body">
+						<form id="FormEditDomain" class="form-horizontal text-left" method="post">
+
+							<div class="form-group required">
+								<div>
+									<h4 class="text-info font-weight-bold form-control" style="background-color: beige">Domain Information</h4>
+								</div>
+								<label for="customerId" class="control-label col-md-2 required">Customer ID</label>
+								<div class="controls col-md-10" style="margin-bottom: 10px">
+									<select id="customerId" name="CustomerID" class="form-control customGroup" style="height: 35px; color: black;" required></select>
+								</div>
+
+								<label for="Http" class="control-label col-md-2 required">Protocol</label>
+								<div id="protocolRadio" class="controls col-md-10 " style="margin-bottom: 10px">
+								</div>
+
+								<label for="domain" class="control-label col-md-2 required"> Domain Name</label>
+								<div id="domainName" class="controls col-md-10">
+								</div>
+							</div>
+
+							<div id="DateRange" class="form-group required">
+								<div class="topLabel">
+									<h4 class="text-info font-weight-bold form-control topLabel" style="background-color: beige">Schedule</h4>
+								</div>
+								<label for="ToStartDate" class="control-label col-md-2">Start & End</label>
+								<div id="dateRangeBoxes" class="controls col-md-10 ">
+								</div>
+								<label class="control-label col-md-2" for="Interval">Interval</label>
+								<div id="intervalBoxes" class="controls col-md-10 " style="margin-bottom: 10px">
+								</div>
+							</div>
+
+							<div id="Browser" class="form-group required">
+								<div class="topLabel">
+									<h4 class="text-info font-weight-bold form-control topLabel" style="background-color: beige">Type</h4>
+								</div>
+								<label for="browserType" class="control-label col-md-2  required">Browser Type</label>
+								<div id="browserType" class="controls col-md-10" style="margin-bottom: 10px">
+								</div>
+								<label for="testType" class="control-label col-md-2  required">Test Type</label>
+								<div id="testType" class="controls col-md-10" style="margin-bottom: 10px">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="controls col-md-12 "></div>
+								<div class="controls col-md-6 pull-right">
+									<button type="button" name="SaveDomain" class="btn btn-primary" id="submit" onclick="PerformanceAnalysis.SubmitEditDomain()">Submit</button>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+</section>
+<script src="~/Scripts/ToffsManagements/PerformanceAnalysis.js"></script>
+@section scripts{
+
+	<script>
+		$(document).ready(function () {
+			$(function () {
+				$("#overlay").remove();
+			});
+			$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+			PerformanceAnalysis.EditDomain('@ViewBag.Url');
+			//DomainManagement.init();
+		});
+		$("#FormEditDomain").validate({
+			focusCleanup: true
+		});
+	</script>
+}

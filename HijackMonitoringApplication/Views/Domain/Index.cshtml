@@ -1,0 +1,139 @@
+﻿
+@{
+	ViewBag.Title = "Domain Management";
+}
+
+<section id="main-content">
+	<section class="wrapper">
+		@*<section class="wrapper">*@
+
+		<div class="row" style="display: contents">
+			<div class="col-md-3">
+				<div class="form-group customGroup">
+					<input id="inputSearch" name="domainName" type="text" class="form-control text-center" onkeyup="DomainManagement.FilterDomain()" placeholder="Search By Domain Name" />
+				</div>
+			</div>
+		
+			<div class="col-md-3">
+				<div class="form-group customGroup">
+					<select id="customerId" onchange="DomainManagement.FilterByCustomerId()" name="GroupId" class="form-control customGroup" style="height: 35px; color: black;" required>
+						<option value="@Model.selfId" selected="selected">@Model.selfId</option>
+
+						@if (Model.customerId != null)
+						{
+							foreach (var data in Model.customerId)
+							{
+								<option value="@data">@data</option>
+							}
+						}
+					</select>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group pull-right">
+					<button id="createButton" class="btn btn-primary" onclick="location.href='/Domain/DomainSetup'">New Domain</button>
+				</div>
+			</div>
+
+		</div>
+		@*</section>*@
+		<div class="row" style="width: 100%; display: contents">
+			<div class="col-lg-12 col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2><i class="fa fa-flag-o red"></i><strong>Domain List</strong></h2>
+						@*<div class="panel-actions">
+								<a href="../Home/index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
+								<a href="../Home/index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+								<a href="../Home/index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+							</div>*@
+					</div>
+					<div class="panel-body">
+						<table id="domainTable" class="table table-hover table-striped table-bordered indexTable">
+							<thead>
+								<tr>
+									<th style="display: none"></th>
+									<th style="width: 20%">Domain Name</th>
+									@*<th style="width: 10%">Resolution Ip</th>*@
+									<th style="width: 10%">Start Date</th>
+									<th style="width: 10%">End Date</th>
+									<th style="width: 10%">Interval</th>
+									<th style="width: 10%">Status</th>
+									<th style="width: 10%">Customer Name</th>
+									<th style="width: 10%">Action</th>
+								</tr>
+							</thead>
+							<tbody id="domainInfo">
+								@foreach (var data in @Model.DomainName)
+								{
+									<tr>
+										<td id="id" style="display: none;">@data.Id</td>
+										<td>@data.Protocol@data.Domain</td>
+										@*<td>@data.DestinationIp</td>*@
+										<td>@data.ToStartTime</td>
+										<td>@data.ToEndTime</td>
+										<td>@data.Interval</td>
+										<td>
+											<div class="form-group">
+												<label class="switch switch-3d switch-primary">
+													@if (@data.Status == 1)
+													{
+														<input type="checkbox" class="switch-input" name="Status" value="1" checked onchange="DomainManagement.ChangeStatus(this)">
+													}
+													else
+													{
+														<input type="checkbox" class="switch-input" name="Status" value="1" onchange="DomainManagement.ChangeStatus(this)">
+													}
+													<span class="switch-label"></span>
+													<span class="switch-handle"></span>
+												</label>
+											</div>
+										</td>
+										<td>@data.CustomerId</td>
+										<td>
+											<div>
+												<a class="btn btn-primary btn-setting" href="/Domain/DomainEdit?@data.Id" data-toggle='tooltip' data-placement='bottom' title='Edit'>
+													<i class='fa fa-edit' aria-hidden='true'></i>
+												</a>
+												<button class="btn btn-danger btn-setting" onclick="DomainManagement.DeleteDomain('@data.Id')" data-toggle='tooltip' data-placement='bottom' title='Delete'>
+													<i class='fa fa-trash-o' aria-hidden='true'></i>
+												</button>
+
+											</div>
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<div id="PaginationNav" class="pager-nav"></div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+</section>
+@Html.Partial("PartialView/DeleteDomain")
+<script src="~/Scripts/ToffsManagements/DomainManagement.js"></script>
+@section scripts{
+
+	<script>
+		$(document).ready(function () {
+			$(function () {
+				$("#overlay").remove();
+			});
+			$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+			
+		});
+		if (@Model.DomainName.Count > 20) {
+			var pager = new TableFunction.tablePagination('domainTable', 20);
+			pager.init();
+			pager.showPageNav('pager');
+			pager.showPage(1);
+		}
+
+	</script>
+}
+

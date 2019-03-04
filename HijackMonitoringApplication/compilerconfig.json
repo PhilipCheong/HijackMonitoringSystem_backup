@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Resources/css/CustomCss/Loader.css",
+    "inputFile": "Resources/css/CustomCss/Loader.sass"
+  },
+  {
+    "outputFile": "Resources/css/CustomCss/Loader.css",
+    "inputFile": "Resources/css/CustomCss/Loader.scss"
+  },
+  {
+    "outputFile": "Content/bootstrap/coreui-style.css",
+    "inputFile": "Content/bootstrap/coreui-style.less"
+  }
+]

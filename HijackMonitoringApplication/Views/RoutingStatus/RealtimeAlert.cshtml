@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Realtime Alert";
+    var server = Model.Server;
+    var Domain = Model.Domain;
+}
+
+<meta http-equiv="refresh" content="60">
+<section id="main-content">
+    <section class="wrapper">
+        @*<section class="wrapper">*@
+
+        @*</section>*@
+        <div class="row" style="width: 100%; display: contents">
+            <div class="col-lg-12 col-md-12">
+                <div class="panel-body">
+                    <div class="row col-12">
+                        <div class="col-6">
+                            @foreach (var data in server)
+                            {
+                                <div class="row col-12" style="background-color:lightpink">
+                                    <p><strong style="color:forestgreen;">@data.ServerCname</strong> in<strong style="color:forestgreen"> @data.ProvinceIsp</strong></p>
+                                </div>
+                                <div class="row col-12" style="background-color:lightpink">
+                                    <ol>
+                                        @foreach (var info in @data.AlertDetail)
+                                        {
+
+                                            <li><b>@info.OccuredDate <span style="color:red"> : @info.DownloadSpeed seconds</span></b></li>
+                                        }
+                                    </ol>
+                                </div><hr />
+                            }
+                        </div>
+                        <div class="col-6">
+                            @foreach (var dom in Domain)
+                            {
+                                <div class="row col-12" style="background-color:lightpink">
+                                    <p><strong style="color:forestgreen;"><a href="/PerformancesResults/GetWaterFall?id=@dom.Id">@dom.ServerCname</a></strong> is unusually slow in<strong style="color:forestgreen"> @dom.ProvinceIsp</strong></p><br />
+                                    <ul>
+                                        @foreach (var d in @dom.AlertDetail)
+                                        {
+                                            <li>Date : <b><span style="color:red;">@d.OccuredDate</span></b></li>
+                                            <li>Response Time : <b><span style="color:red;">@d.DownloadSpeed</span></b></li>
+                                            <li>Average : <b><span style="color:red;">@d.Average</span></b></li>
+                                            <li>Increase : <b><span style="color:red;">@d.Percentage</span></b></li>
+                                        }
+                                    </ul>
+                                </div><hr />
+                            }
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+</section>
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $("#overlay").remove();
+            });
+            $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+        });
+
+        
+    </script>
+}
+

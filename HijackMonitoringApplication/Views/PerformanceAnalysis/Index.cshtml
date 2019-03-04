@@ -1,0 +1,131 @@
+﻿
+@{
+	ViewBag.Title = "Domain Examination";
+}
+
+<section id="main-content">
+	<section class="wrapper">
+		@*<section class="wrapper">*@
+
+		<div class="row" style="display: contents">
+			<div class="col-md-3">
+				<div class="form-group customGroup">
+					<input id="inputSearch" name="domainName" type="text" class="form-control text-center" onkeyup="PerformanceAnalysis.FilterDomain()" placeholder="Search By Domain Name" />
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<div class="form-group customGroup">
+					<select id="customerId" onchange="PerformanceAnalysis.FilterByCustomerId()" name="GroupId" class="form-control customGroup" style="height: 35px; color: black;" required>
+						<option value="@Model.selfId" selected="selected">@Model.selfId</option>
+
+						@if (Model.customerId != null)
+						{
+							foreach (var data in Model.customerId)
+							{
+								<option value="@data">@data</option>
+							}
+						}
+					</select>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group pull-right">
+					<button id="createButton" class="btn btn-primary" onclick="location.href='/PerformanceAnalysis/NewDomain'">New Domain</button>
+				</div>
+			</div>
+
+		</div>
+		@*</section>*@
+		<div class="row" style="width: 100%; display: contents">
+			<div class="col-lg-12 col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2><i class="fa fa-flag-o red"></i><strong>Domain List</strong></h2>
+					</div>
+					<div class="panel-body">
+						<table id="DomainExaminationTable" class="table table-hover table-striped table-bordered indexTable">
+							<thead>
+								<tr>
+									<th style="display: none"></th>
+									<th style="width: 20%">Domain Name</th>
+									<th style="width: 10%">Start Date</th>
+									<th style="width: 10%">End Date</th>
+									<th style="width: 10%">Interval</th>
+									<th style="width:10%">Type of Test</th>
+									<th style="width:10%">Browser Type</th>
+									<th style="width: 10%">Status</th>
+									<th style="width: 10%">Customer Name</th>
+									<th style="width: 10%">Action</th>
+								</tr>
+							</thead>
+							<tbody id="domainExaminationInfo">
+								@foreach (var data in @Model.DomainName)
+								{
+									<tr>
+										<td id="id" style="display: none;">@data.Id</td>
+										<td>@data.Protocol@data.Domain</td>
+										@*<td>@data.DestinationIp</td>*@
+										<td>@data.ToStartTime</td>
+										<td>@data.ToEndTime</td>
+										<td>@data.Interval</td>
+										<td>@data.TestType</td>
+										<td>@data.BrowserType</td>
+										<td>
+											<div class="form-group">
+												<label class="switch switch-3d switch-primary">
+													@if (@data.Status == 1)
+													{
+														<input type="checkbox" class="switch-input" name="Status" value="1" checked onchange="PerformanceAnalysis.ChangeStatus(this)">
+													}
+													else
+													{
+														<input type="checkbox" class="switch-input" name="Status" value="1" onchange="PerformanceAnalysis.ChangeStatus(this)">
+													}
+													<span class="switch-label"></span>
+													<span class="switch-handle"></span>
+												</label>
+											</div>
+										</td>
+										<td>@data.CustomerId</td>
+										<td>
+											<div>
+												<a class="btn btn-primary btn-setting" href="/PerformanceAnalysis/DomainEdit?@data.Id" data-toggle='tooltip' data-placement='bottom' title='Edit'>
+													<i class='fa fa-edit' aria-hidden='true'></i>
+												</a>
+												<button class="btn btn-danger btn-setting" onclick="PerformanceAnalysis.DeleteDomain('@data.Id')" data-toggle='tooltip' data-placement='bottom' title='Delete'>
+													<i class='fa fa-trash-o' aria-hidden='true'></i>
+												</button>
+
+											</div>
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<div id="PaginationNav" class="pager-nav"></div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+</section>
+@Html.Partial("PartialView/DeleteDomain")
+<script src="~/Scripts/ToffsManagements/PerformanceAnalysis.js"></script>
+@section scripts{
+
+	<script>
+		$(document).ready(function () {
+			$(function () {
+				$("#overlay").remove();
+			});
+			$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+		});
+
+	</script>
+}
+

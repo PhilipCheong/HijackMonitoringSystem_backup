@@ -1,0 +1,13 @@
+﻿.form-horizontal .control-label {
+	text-align: left;
+}
+.topLabel {
+	margin-bottom: 2%;
+}
+#faCalender {
+	font-size: 30px;
+	text-align: center;
+}
+.radio-inline + .radio-inline, .checkbox-inline + .checkbox-inline {
+	margin-left: 5px;
+}

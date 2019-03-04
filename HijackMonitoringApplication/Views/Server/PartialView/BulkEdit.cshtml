@@ -1,0 +1,33 @@
+﻿<div id="bulkEdit" class="modal fade" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" >
+	<div class="modal-dialog modal-lg" role="dialog" style="width: 100%">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="ModalLabel">Edit Server Info</h5>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-10">
+						<select id="cNameDropDown" onchange="serverManagement.BulkEdit()" name="cNameDropDown" class="form-control customGroup" style="height: 35px; color: black; width:220px;" required></select>
+					</div>
+					<div class="col-md-2">
+						<button id="bulkDeleteButton" class="btn btn-danger" onclick="serverManagement.BulkDeleteOption()">Bulk Delete</button>
+					</div>
+
+				</div>
+				<form id="BulkEditForm" role="form" method="post">
+					<div id="formAppendRow">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button id="SubmitNewServer" type="submit" class="btn btn-primary" onclick="serverManagement.submitBulkEdit()">Submit</button>
+						<button id="SubmitBulkDelete" type="submit" class="btn btn-danger" onclick="serverManagement.submitBulkDelete()">Delete</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div><br />
+<script src="/Scripts/ToffsManagements/ServerManagement.js"></script>
+
+

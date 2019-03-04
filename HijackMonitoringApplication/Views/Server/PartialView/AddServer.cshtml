@@ -1,0 +1,38 @@
+﻿<div id="NewServer" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="ModalLabel">Server Info</h5>
+			</div>
+			<div class="modal-body">
+				<form id="RegistrationForm" role="form" action="/Server/AddOrEditForServer" method="post">
+					<div class="form-group form-control-sm" style="display: none">
+						<label for="Id" class="col-form-label-lg">Id:</label>
+						<input type="text" name="Id" class="form-control form-control-sm" id="Id">
+					</div>
+					<div class="form-group form-control-sm">
+						<label for="GroupName" class="col-form-label-lg">GroupName:</label>
+						<input type="text" name="GroupName" class="form-control form-control-sm" id="GroupName" required>
+					</div>
+					<div class="form-group form-control-sm">
+						<label for="ServerCname" class="col-form-label-lg">CName:</label>
+						<input type="text" name="ServerCname" class="form-control form-control-sm" id="ServerCname" required />
+					</div>
+					<div class="form-group form-control-sm">
+						<label for="ServerIp" class="col-form-label-lg">Server Ip:<i class="fa fa-question-circle" data-toggle="tooltip" title="Multiple Ips, seperate by comma"></i></label>
+						<input type="text" name="ServerIp" class="form-control form-control-sm" id="ServerIp" required />
+					</div>
+					<div class="form-group form-control-sm">
+						<label for="BandwidthLimitation" class="col-form-label-lg">Bandwidth Limitation:</label>
+						<input type="text" name="BandwidthLimitation" class="form-control form-control-sm" id="BandwidthLimitation" required />
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button id="SubmitNewServer" type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div><br />
+

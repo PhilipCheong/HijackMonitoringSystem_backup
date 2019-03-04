@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "Realtime Results";
+}
+
+<meta http-equiv="refresh" content="60">
+<section id="main-content">
+    <section class="wrapper">
+        @*<section class="wrapper">*@
+
+        @*</section>*@
+        <div class="row" style="width: 100%; display: contents">
+            <div class="col-lg-12 col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2><i class="fa fa-flag-o red"></i><strong>Realtime Satus</strong></h2>
+                        @*<div class="panel-actions">
+                                <a href="../Home/index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
+                                <a href="../Home/index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+                                <a href="../Home/index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+                            </div>*@
+                    </div>
+                    <div class="panel-body">
+                        <table id="statusTable" class="table table-hover table-striped table-bordered indexTable">
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%">Server Cname</th>
+                                    <th style="width: 20%">Last Success</th>
+                                    <th style="width: 10%">Download Time</th>
+                                    <th style="width: 10%">Exceeded Count (1s | 2s | 3s)</th>
+                                    <th style="width: 10%">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="statusInfo">
+                                @foreach (var data in @Model)
+                                {
+                                    <tr>
+                                        <td>@data.ServerCname</td>
+                                        <td>@data.LastExecution</td>
+                                        @if (data.DownloadTime >= 1000 && data.DownloadTime < 2000)
+                                        {
+                                            <td style="color:gold">@data.DownloadTime ms</td>
+                                        }
+                                        else if (data.DownloadTime >= 2000 && data.DownloadTime < 3000)
+                                        {
+                                            <td style="color:orange">@data.DownloadTime ms</td>
+                                        }
+                                        else if (data.DownloadTime >= 3000)
+                                        {
+                                            <td style="color:orangered">@data.DownloadTime ms</td>
+                                        }
+                                        else
+                                        {
+                                            <td style="color:limegreen">@data.DownloadTime ms</td>
+                                        }
+                                        @if (data.CountOnOne > 10 || data.CountOnTwo > 6 || data.CountOnThree > 3)
+                                        {
+                                            <td style="color:orangered;"><a onclick="GetDetail('@data.ServerCname')">@data.CountOnOne | @data.CountOnTwo | @data.CountOnThree</a></td>
+                                        }
+                                        else
+                                        {
+                                            <td><a onclick="GetDetail('@data.ServerCname')">@data.CountOnOne | @data.CountOnTwo | @data.CountOnThree</a></td>
+                                        }
+                                        <td>
+                                            @if (@data.Status == "Success")
+                                            {
+                                                <span class="badge badge-pill badge-success">Success</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge-pill badge-danger">Failed</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+</section>
+@Html.Partial("PartialView/ExeededDetail")
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $(function () {
+                $("#overlay").remove();
+            });
+            $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+        });
+        function GetDetail(serverName) {
+            var detailModal = $("#ServerDetail");
+            $.ajax({
+                url: "/RoutingStatus/ExceededDetail",
+                method: "GET",
+                data: { serverCname: serverName },
+                dataType: "json",
+                success: function (data) {
+                    var table = $("#provinceDetail");
+                    table.html('');
+                    for (var i = 0; i < data.length; i++) {
+                        var oneCol = "black";
+                        var twoCol = "black";
+                        var threeCol = "black";
+
+                        if (data[i].CountOnOne > 0) {
+                            oneCol = "red";
+                        }
+                        if (data[i].CountOnTwo > 0) {
+                            twoCol = "red";
+                        }
+                        if (data[i].CountOnThree > 0) {
+                            threeCol = "red";
+                        }
+                        table.append('<tr><td>' + data[i].ProvinceIsp + '</td>' +
+                            '<td style="color:' + oneCol + '">' + data[i].CountOnOne + '</td><td style="color:' + twoCol + '">' + data[i].CountOnTwo + '</td><td style="color:' + threeCol + '">' + data[i].CountOnThree + '</td>' +
+                            '</tr > ');
+                    }
+                    detailModal.modal('show');
+                }
+            });
+
+        }
+    </script>
+}
+
+

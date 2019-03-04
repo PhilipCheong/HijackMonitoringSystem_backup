@@ -1,0 +1,43 @@
+﻿.indexTable th{
+	background-color: darkblue;
+	color: aliceblue;
+	font-weight: 500;
+}
+
+.pager-nav {
+	margin: 16px 0;
+}
+
+	.pager-nav span {
+		display: inline-block;
+		padding: 4px 8px;
+		margin: 1px;
+		cursor: pointer;
+		font-size: 14px;
+		background-color: darkblue;
+		border: 1px solid #e1e1e1;
+		box-shadow: 0 1px 1px rgba(0,0,0,.04);
+		color: white;
+	}
+
+		.pager-nav span:hover {
+			background-color: grey;
+		}
+
+	.pager-nav .pg-selected {
+		background-color: black;
+		border: 1px solid #CCCCCC;
+		color: aliceblue;
+	}
+
+#customerId .select2-container .select2-selection--single {
+	height:34px;
+}
+
+label.error{
+	color: red;
+	font-size: 10px;
+}
+/*#ChartTable{
+	overflow: auto;
+}*/

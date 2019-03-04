@@ -1,0 +1,154 @@
+﻿@{
+	ViewBag.Title = "Monitor Configuration";
+}
+
+<link href="~/Content/CustomCss/DomainSetup.css" rel="stylesheet" />
+<section id="main-content">
+	<section class="wrapper">
+		@*<section class="wrapper">
+
+		</section>*@
+		<div class="row" style="width: 100%; display: contents">
+			<div class="col-lg-12 col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2><i class="fa fa-flag-o red"></i><strong>Monitor Configuration</strong></h2>
+					</div>
+					<div class="panel-body">
+						<form id="FormNewDomain" class="form-horizontal text-left" method="post">
+							<input id="Id" type='hidden' name='Id' />
+
+							<div id="domainName" class="form-group required">
+								<div>
+									<h4 class="text-info font-weight-bold form-control" style="background-color: beige">Domain Information</h4>
+								</div>
+								<label for="Http" class="control-label col-md-2 required">Customer ID</label>
+								<div class="controls col-md-10" style="margin-bottom: 10px">
+
+									<select id="customerId" name="CustomerID" class="form-control customGroup" style="height: 35px; color: black;" required>
+										<option value="" selected="selected">Please choose</option>
+
+										@if (Model.CustomerId != null)
+										{
+											foreach (var data in Model.CustomerId)
+											{
+												<option value="@data">@data</option>
+											}
+										}
+									</select>
+								</div>
+
+								<label for="Http" class="control-label col-md-2 required">Protocol</label>
+								<div id="radioProtocol" class="controls col-md-10 " style="margin-bottom: 10px">
+									<label class="radio-inline"><input type="radio" checked="checked" name="Protocol" id="Http" value="http://" style="margin-bottom: 10px">Http</label>
+									<label class="radio-inline"><input type="radio" name="Protocol" id="Https" value="https://" style="margin-bottom: 10px">Https</label>
+								</div>
+								<label for="domain" class="control-label col-md-2 required"> Domain Name</label>
+								<div class="controls col-md-10 ">
+									<input class="form-control" id="domain" name="Domain" placeholder="Domain Name" style="margin-bottom: 10px" type="text" required />
+								</div>
+								<label for="redirection" class="control-label col-md-2"> Redirection</label>
+								<div class="controls col-md-10 ">
+									<input class="form-control" id="redirection" name="redirection" placeholder="Redirect Url" style="margin-bottom: 10px" type="text" />
+								</div>
+							</div>
+							<div id="Ip" class="form-group required">
+								<div class="topLabel">
+									<h4 class="text-info font-weight-bold form-control" style="background-color: beige">Resolution Ips</h4>
+								</div>
+								<label for="ipAddress" class="control-label col-md-2  required">Resolution Ip</label>
+								<div class="controls col-md-10 ">
+									<input class="form-control" id="ipAddress" name="DestinationIp" placeholder="Resolution Ip" style="margin-bottom: 10px" type="text" required />
+								</div>
+							</div>
+							<div id="DateRange" class="form-group required">
+								<div class="topLabel">
+									<h4 class="text-info font-weight-bold form-control topLabel" style="background-color: beige">Schedule</h4>
+								</div>
+								<label for="ToStartDate" class="control-label col-md-2">Start & End</label>
+								<div class="controls col-md-10 ">
+									<div class="col-md-1">
+										<i class="fa fa-calendar col-md-1" id="faCalender"></i>
+									</div>
+									<div class="col-md-4">
+										<input type="text" class="form-control" readonly="readonly" id="ToStartDate" name="ToStartTime" placeholder="Start" style="margin-bottom: 10px" onfocus="DomainManagement.TimeRangeStart()" required />
+									</div>
+									<div class="col-md-1">
+										<i class="fa fa-calendar col-md-1" id="faCalender"></i>
+									</div>
+									<div class="col-md-4">
+										<input type="text" class="form-control" readonly="readonly" id="ToEndDate" name="ToEndTime" placeholder="End" style="margin-bottom: 10px" onfocus="DomainManagement.TimeRangeEnd()" required />
+									</div>
+								</div>
+								<label class="control-label col-md-2" for="Interval"></label>
+								<div class="controls col-md-10 " style="margin-bottom: 10px">
+									<label class="radio-inline"><input type="radio" checked="checked" name="Interval" id="Interval_15" value="15" style="margin-bottom: 10px">15 mins</label>
+									<label class="radio-inline"><input type="radio" name="Interval" id="Interval_30" value="30" style="margin-bottom: 10px">30 mins</label>
+									<label class="radio-inline"><input type="radio" name="Interval" id="Interval_45" value="45" style="margin-bottom: 10px">45 mins</label>
+									<label class="radio-inline"><input type="radio" name="Interval" id="Interval_60" value="60" style="margin-bottom: 10px">60 mins</label>
+								</div>
+							</div>
+							<div id="Isp" class="form-group required">
+								<div class="topLabel">
+									<h4 class="text-info font-weight-bold form-control topLabel" style="background-color: beige">Isp</h4>
+								</div>
+
+								<label for="Checkboxes1" class="control-label col-md-2">Isp Provider</label>
+
+								<div class="controls col-md-10" style="margin-bottom: 10px">
+									<input class="hidden" type="text" name="CheckedIsp" id="checkedIsp" />
+									<label class="checkbox-inline col-md-2 "> <input class="ispCheckBoxes" type="checkbox" name="Isp[0]" id="Checkboxes1" value="1" style="margin-bottom: 10px">China Telecom</label>
+									<label class="checkbox-inline col-md-2"> <input class="ispCheckBoxes" type="checkbox" name="Isp[1]" id="Checkboxes2" value="2" style="margin-bottom: 10px">China Unicom</label>
+									<label class="checkbox-inline col-md-2"> <input class="ispCheckBoxes" type="checkbox" name="Isp[2]" id="Checkboxes3" value="7" style="margin-bottom: 10px">China Mobile</label>
+								</div>
+							</div>
+							<div id="Province" class="form-group required">
+								<div class="topLabel">
+									<h4 class="text-info font-weight-bold form-control topLabel" style="background-color: beige">Locations</h4>
+								</div>
+								<label for="AllProvince" class="control-label col-md-2  required">Provinces</label>
+
+								<div class="controls col-md-10" style="margin-bottom: 10px">
+									<label class="checkbox-inline col-md-2">
+										<input type="checkbox" name="All" id="AllProvince" value="" onclick="DomainManagement.CheckALL()" style="margin-bottom: 10px;">All
+									</label>
+									<input class="hidden" type="text" name="checkedProvince" id="checkedProvince" />
+
+									@for (var i = 0; i < Model.Province.Count; i++)
+									{
+										<label class="checkbox-inline col-md-2">
+											<input class="CheckboxArray" type="checkbox" name="Province[@i]" @*id="CheckboxesProvince[@i]"*@ value="@Model.Province[i].Value" style="margin-bottom: 10px;">@Model.Province[i].Key
+										</label>
+									}
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="controls col-md-12 "></div>
+								<div class="controls col-md-6 pull-right">
+									<button type="button" name="SaveDomain" class="btn btn-primary" id="submit" onclick="DomainManagement.SubmitDomain()">Submit</button>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+</section>
+@section scripts{
+
+	<script>
+		$(document).ready(function () {
+			$(function () {
+				$("#overlay").remove();
+			});
+			$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+			DomainManagement.init();
+		});
+		$("#FormNewDomain").validate({
+			focusCleanup: true,
+		});
+	</script>
+}

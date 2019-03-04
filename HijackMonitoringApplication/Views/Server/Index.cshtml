@@ -1,0 +1,130 @@
+﻿
+@{
+	ViewBag.Title = "Server Management";
+}
+
+<section id="main-content">
+	<section class="wrapper">
+		@*<section class="wrapper">*@
+
+		<div class="row" style="display: contents">
+			<div class="col-md-3">
+				<div class="form-group customGroup">
+					<input id="inputSearch" name="ServerName" type="text"  onkeyup="serverManagement.FilterCName()" class="form-control text-center" placeholder="Search Dnspod Name" />
+				</div>
+			</div>
+			@*<div class="col-md-5">
+				<div class="form-group customGroup">
+					<button id="Search" type="submit" class="btn btn-send" onclick="serverManagement.SearchByCname()">Search</button>
+				</div>
+			</div>*@
+
+			@*<div class="col-md-3">
+					<div class="form-group customGroup">
+						<select id="cNameDropDown" onchange="serverManagement.FilterByCname()" name="GroupId" class="form-control customGroup" style="height: 35px; color: black;" required>
+							<option value="" selected="selected">Server Cname</option>
+
+							@if (Model.Distinct != null)
+							{
+								foreach (var data in Model.Distinct)
+								{
+									<option value="@data">@data</option>
+								}
+							}
+						</select>
+					</div>
+				</div>*@
+			<div class="col-md-7">
+				<div class="form-group pull-right">
+					<button id="bulkButton" class="btn btn-info" onclick="serverManagement.BulkEditDropDown()">Bulk Edit</button>
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group pull-right">
+					<button id="createButton" class="btn btn-primary" onclick="serverManagement.addNewServer()">New Server</button>
+				</div>
+			</div>
+
+		</div>
+		@*</section>*@
+		<div class="row" style="width: 100%; display: contents">
+			<div class="col-lg-12 col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h2><i class="fa fa-flag-o red"></i><strong>Server List</strong></h2>
+						@*<div class="panel-actions">
+								<a href="../Home/index.html#" class="btn-setting"><i class="fa fa-rotate-right"></i></a>
+								<a href="../Home/index.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
+								<a href="../Home/index.html#" class="btn-close"><i class="fa fa-times"></i></a>
+							</div>*@
+					</div>
+					<div class="panel-body">
+						<table id="serverTable" class="table table-hover table-striped table-bordered indexTable">
+							<thead>
+								<tr>
+									<th style="display: none"></th>
+									<th style="width: 20%">Server Name</th>
+									<th style="width: 10%">Dnspod cName</th>
+									<th style="width: 10%">Resolution Ip</th>
+									<th style="width: 10%">Bandwidth Limitation</th>
+									<th style="width: 10%">Action</th>
+								</tr>
+							</thead>
+							<tbody id="ServerInfo">
+								@foreach (var data in @Model.FullList)
+								{
+									<tr>
+										<td id="id" style="display: none;">@data.Id</td>
+										<td>@data.GroupName</td>
+										<td class="dnspodCname">@data.ServerCname</td>
+										<td>@data.ServerIp</td>
+										<td>@data.BandwidthLimitation</td>
+										<td>
+											<div>
+												<button class="btn btn-primary btn-setting" data-toggle='tooltip' data-placement='bottom' title='Edit' onclick="serverManagement.PopulateDataForEdit('@data.Id')">
+													<i class='fa fa-edit' aria-hidden='true'></i>
+												</button>
+												<button class="btn btn-danger btn-setting" onclick="serverManagement.DeleteServer('@data.Id')" data-toggle='tooltip' data-placement='bottom' title='Delete'>
+													<i class='fa fa-trash-o' aria-hidden='true'></i>
+												</button>
+
+											</div>
+										</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<div id="PaginationNav" class="pager-nav"></div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+</section>
+@Html.Partial("PartialView/AddServer")
+@Html.Partial("PartialView/DeleteServer")
+@Html.Partial("PartialView/BulkEdit")
+<script src="~/Scripts/ToffsManagements/ServerManagement.js"></script>
+@section scripts{
+
+	<script>
+		$(document).ready(function() {
+			$(function() {
+				$("#overlay").remove();
+			});
+			$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+			$("#cNameDropDown").select2();
+		});
+		@*if (@Model.FullList.Count > 20) {
+			var pager = new TableFunction.tablePagination('serverTable', 20);
+			pager.init();
+			pager.showPageNav('pager');
+			pager.showPage(1);
+		}*@
+
+	</script>
+}
+

@@ -1,0 +1,39 @@
+﻿body {
+}
+
+.customGroup {
+    color: black;
+}
+
+    .customGroup > #GroupId {
+        height: 35px;
+    }
+
+#HijackedLocation {
+    height: 233px;
+    background-color: #eef3f7;
+}
+    #HijackedLocation > ol > li {
+        color: black;
+        margin-left: -28px;
+    }    #HijackedLocation > ol > li > span{
+             color: black;
+             float: right;
+         }
+
+#HijackedISP {
+	height: 116px;
+}
+    #HijackedISP > ol > li {
+        color: black;
+        margin-left: -28px;
+    }
+        #HijackedISP > ol > li > span {
+            color: black;
+            float: right;
+        }
+
+
+.checkDelete {
+	margin: 9px 0 0 10px;
+}

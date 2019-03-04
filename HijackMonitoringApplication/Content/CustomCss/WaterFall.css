@@ -1,0 +1,51 @@
+﻿.WaterFall {
+	min-width: 200px;
+	max-width: 300px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.startedTime {
+	background-color: #f5f5f5;
+}
+.tooltip-inner {
+	white-space: pre-wrap;
+}
+#chartContainer > tr > td {
+	padding: 0px;
+	vertical-align: middle;
+}
+
+	#chartContainer > tr > td > .progress {
+		padding: 0px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+.card-body > .row > .col-4 > hr {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border: 0;
+	border-top: 1px solid;
+}
+.google-visualization-tooltip {
+	z-index: 1;
+}
+
+.bodyOfDataDetailParagraph{
+	word-wrap:break-word;
+}
+
+#bodyOfDataDetail{
+	background-color:lavender;
+}
+
+.detailBold{
+	color:green;
+}
+
+#timeline{
+	/*min-height:500px;
+	max-height:780px;*/
+}

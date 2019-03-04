@@ -1,0 +1,89 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />
+<section id="main-content">
+	<section class="wrapper">
+		<div id="DateRange" class="form-group required col-md-12">
+			<div class="row">
+				<div class="col-md-7">
+					<div class="form-group customGroup">
+						<label for="inputSearch">Server CName</label>
+						<input id="inputSearch" name="serverName" type="text" class="form-control col-md-12" required />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="controls col-md-2 ">
+					<label for="toStartTime">Start Date</label>
+					<input type="text" class="form-control" readonly="readonly" id="ToStartDate" name="ToStartTime" style="margin-bottom: 10px" />
+				</div>
+				<div class="controls col-md-2 ">
+					<label for="ToEndTime">End Date</label>
+					<input type="text" class="form-control" readonly="readonly" id="ToEndDate" name="ToEndTime" style="margin-bottom: 10px" />
+				</div>
+			</div><br />
+			<div class="row">
+				<div class="col-md-1">
+					<div class="form-group customGroup">
+						<label for="Search"> </label>
+						<button id="Search" type="button" class="btn btn-send" onclick="ServerExamination.PlotResults()">Search</button>
+					</div>
+				</div>
+
+				<div class="col-md-1">
+					<div class="form-group customGroup">
+						<label for="Export"> </label>
+						<button id="Export" type="button" class="btn btn-info" onclick="ServerExamination.ExportExcel()" style="display:none;">Export</button>
+					</div>
+				</div>
+			</div>
+			<div>
+				<table id="ChartTable" class="table table-borderless table-responsive">
+					<thead id="chartContainerHeader">
+
+					</thead>
+					<tbody id="chartContainer"></tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+</section>
+
+
+@section scripts
+{
+	<script src="~/Scripts/ToffsManagements/ServerExamination.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
+	<script src="~/Scripts/ToffsFunctions/jquery.taginput.js"></script>
+	<script>
+		$(document).ready(function () {
+			ServerExamination.init();
+			var timeout = setInterval(function () {
+				$(function () {
+					$("#overlay").remove();
+				});
+				clearInterval(timeout);
+			}, 3000);
+			$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+		});
+
+
+		$(document).ajaxStart(function () {
+			$.blockUI({
+				message: '<div class="dice"><div class= "face first-face"><div class="dot"></div></div>' +
+					'<div class="face second-face"><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="face third-face"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>\n' +
+					'<div class="face fourth-face"><div class="column"><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="column"><div class="dot"></div><div class="dot"></div></div></div>' +
+					'<div class="face fifth-face"><div class="column"><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="column"><div class="dot"></div></div><div class="column"><div class="dot"></div><div class="dot"></div></div></div>\n' +
+					'<div class="face sixth-face"><div class="column"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="column"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div></div>\n\n' +
+					'<p>Wait, please...</p>'
+			});
+		}).ajaxStop($.unblockUI);
+	</script>
+}

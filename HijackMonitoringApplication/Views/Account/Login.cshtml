@@ -1,0 +1,23 @@
+﻿@using HijackMonitoringApplication.Resources;
+@{
+	ViewBag.Title = "Login";
+	Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<link href="~/Content/StyleSheets/Login.css" rel="stylesheet" />
+
+<div class="login">
+	<h1>Toffstech Monitoring System</h1>
+	<form id="Login" action="/Account/Login" method="post">
+		<input type="text" name="UserName" placeholder="Username" required="required" />
+		<input id="passwd" type="password" name="Password" placeholder="Password" required="required" />
+		<button type="submit" class="btn btn-primary btn-block btn-large">Sign In</button>
+		@if (Model.Error != null && !string.IsNullOrEmpty(Model.Error))
+		{
+			<p style="color: red; text-align: center;">@Model.Error</p>
+		}
+	</form>
+</div>
+@section scripts{
+
+}

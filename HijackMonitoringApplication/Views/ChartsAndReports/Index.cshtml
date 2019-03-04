@@ -1,0 +1,137 @@
+﻿
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.css" />
+<section id="main-content">
+	<section class="wrapper">
+		<div id="DateRange" class="form-group required col-md-12">
+			<div class="row">
+				<div class="col-md-7">
+					<div class="form-group customGroup">
+						<label for="inputSearch">Domain Name</label>
+						<input id="inputSearch" name="domainName" type="text" class="form-control col-md-12" required/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="controls col-md-2 ">
+					<label for="toStartTime">Start Date</label>
+					<input type="text" class="form-control" readonly="readonly" id="ToStartDate" name="ToStartTime" style="margin-bottom: 10px" />
+				</div>
+				<div class="controls col-md-2 ">
+					<label for="ToEndTime">End Date</label>
+					<input type="text" class="form-control" readonly="readonly" id="ToEndDate" name="ToEndTime" style="margin-bottom: 10px" />
+				</div>
+			</div><br />
+			<div class="row">
+				<div class="col-md-1">
+					<div class="form-group customGroup">
+						<label for="Search"> </label>
+						<button id="Search" type="button" class="btn btn-send" onclick="PlotChart.HijackCountLineChart()">Search</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+
+				<div class="panel panel-default">
+				</div>
+				<div class="panel-body-map">
+					<div id="HijackLineChart" style="height: 330px;"></div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+
+				<div class="panel panel-default">
+				</div>
+				<div class="panel-body-map">
+					<div id="HijackedISP" style="height: 480px;"></div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+
+				<div class="panel panel-default">
+				</div>
+				<div class="panel-body-map">
+					<div id="HijackTypePie" style="height: 480px;"></div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+
+				<div class="panel panel-default">
+				</div>
+				<div class="panel-body-map">
+					<div id="HijackedProvince" style="height: 480px;"></div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+
+				<div class="panel panel-default">
+				</div>
+				<div class="panel-body-map">
+					<div id="ResolutionTime" style="height: 330px;"></div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+</section>
+
+
+@section scripts
+{
+	<script src="~/Scripts/ToffsManagements/PlotChart.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.min.js"></script>
+	<script src="~/Scripts/ToffsFunctions/jquery.taginput.js"></script>
+	<script>
+		$(document).ready(function () {
+			PlotChart.init();
+			//PlotChart.HijackCountLineChart();
+			//PlotChart.ProvinceBar();
+			//PlotChart.HijackedType();
+			//PlotChart.HijackedMap();
+			var timeout = setInterval(function () {
+				//if (google.visualization != undefined) {
+				$(function () {
+					$("#overlay").remove();
+				});
+				clearInterval(timeout);
+				//}
+			}, 3000);
+			$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+		});
+
+
+		$(document).ajaxStart(function () {
+			$.blockUI({
+				message: '<div class="dice"><div class= "face first-face"><div class="dot"></div></div>' +
+					'<div class="face second-face"><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="face third-face"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>\n' +
+					'<div class="face fourth-face"><div class="column"><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="column"><div class="dot"></div><div class="dot"></div></div></div>' +
+					'<div class="face fifth-face"><div class="column"><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="column"><div class="dot"></div></div><div class="column"><div class="dot"></div><div class="dot"></div></div></div>\n' +
+					'<div class="face sixth-face"><div class="column"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>' +
+					'<div class="column"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div></div>\n\n' +
+					'<p>Wait, please...</p>'
+			});
+		}).ajaxStop($.unblockUI);
+	</script>
+}
