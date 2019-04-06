@@ -1,6 +1,9 @@
 ﻿using HijackMonitoringApplication.DataAccessLayer.Core.Context;
 using HijackMonitoringApplication.DataAccessLayer.Core.Repositories.Interface;
+using HijackMonitoringApplication.DataAccessLayer.Entities;
 using HijackMonitoringApplication.DataAccessLayer.Entities.GeneralData;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +16,5 @@ namespace HijackMonitoringApplication.DataAccessLayer.Core.Repositories
 		public ServerPerformanceRepository(MongoDbContext context) : base(context)
 		{
 		}
-	}
+    }
 }

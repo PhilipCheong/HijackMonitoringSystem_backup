@@ -10,15 +10,15 @@ using System.Web;
 
 namespace HijackMonitoringApplication.BusinessLayer.Services.IndependentServices
 {
-	public class ServerPerformanceService : BaseService<ServerPerformanceEntities, ServerPerformanceDto>, IServerPerformanceService
-	{
-		public IUnitOfWork<ServerPerformanceEntities> _unitOfWork = new UnitOfWork<ServerPerformanceEntities>();
+    public class ServerPerformanceService : BaseService<ServerPerformanceEntities, ServerPerformanceDto>, IServerPerformanceService
+    {
+        public IUnitOfWork<ServerPerformanceEntities> _unitOfWork = new UnitOfWork<ServerPerformanceEntities>();
 
-		IServerPerformanceRepository<ServerPerformanceEntities> _serverPerformanceRepository;
-		public ServerPerformanceService()
-		{
-			_serverPerformanceRepository = _unitOfWork.ServerPerformanceRepository;
-			_repository = _serverPerformanceRepository;
-		}
-	}
+        IServerPerformanceRepository<ServerPerformanceEntities> _serverPerformanceRepository;
+        public ServerPerformanceService()
+        {
+            _serverPerformanceRepository = _unitOfWork.ServerPerformanceRepository;
+            _repository = _serverPerformanceRepository;
+        }
+    }
 }

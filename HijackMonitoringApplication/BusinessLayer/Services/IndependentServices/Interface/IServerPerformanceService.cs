@@ -9,5 +9,5 @@ namespace HijackMonitoringApplication.BusinessLayer.Services.IndependentServices
 {
 	public interface IServerPerformanceService : IService<ServerPerformanceEntities, ServerPerformanceDto>
 	{
-	}
+    }
 }

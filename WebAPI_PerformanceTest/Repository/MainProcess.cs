@@ -279,7 +279,7 @@ namespace WebAPI_PerformanceTest.Repository
                                 reqType = "Received";
                                 continue;
                             }
-                            else if (obj.Value.ToString().Equals("Network.Finished"))
+                            else if (obj.Value.ToString().Equals("Network.loadingFinished"))
                             {
                                 reqType = "Loading";
                                 continue;

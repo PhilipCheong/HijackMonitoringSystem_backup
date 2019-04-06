@@ -1,4 +1,5 @@
-﻿using HijackMonitoringApplication.DataAccessLayer.Entities.GeneralData;
+﻿using HijackMonitoringApplication.DataAccessLayer.Entities;
+using HijackMonitoringApplication.DataAccessLayer.Entities.GeneralData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,5 +9,8 @@ namespace HijackMonitoringApplication.DataAccessLayer.Core.Repositories.Interfac
 {
 	public interface IPerformanceDataRepository<T> : IRepository<T> where T : IPersistenceEntities
 	{
-	}
+        List<PerformanceDataEntities> FindWithoutImageAsync(string domainName, DateTime startDate, DateTime endDate);
+        List<PerformanceDataEntities> FindWithoutImageAsync(string domainName, DateTime dateTime);
+        List<PerformanceDataEntities> FindWithoutImageAsync(DateTime dateTime);
+    }
 }

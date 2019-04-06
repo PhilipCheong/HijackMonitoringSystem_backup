@@ -10,5 +10,8 @@ namespace HijackMonitoringApplication.BusinessLayer.Services.IndependentServices
 {
 	public interface IPerformanceDataService : IService<PerformanceDataEntities, PerformanceDataDto>
 	{
-	}
+        List<PerformanceDataDto> FindWithoutImage(string domainName, DateTime startDate, DateTime endDate);
+        List<PerformanceDataDto> FindWithoutImage(string domainName, DateTime startDate);
+        List<PerformanceDataDto> FindWithoutImage(DateTime startDate);
+    }
 }

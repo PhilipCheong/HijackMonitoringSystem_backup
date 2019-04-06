@@ -107,7 +107,7 @@ namespace HijackMonitoringApplication.Controllers
 
             if (monitoringDomain.Any())
             {
-                var domainData = _performanceDataService.Find(s => s.TestTime >= now);
+                var domainData = _performanceDataService.FindWithoutImage(now);
 
                 if (domainData.Any())
                 {

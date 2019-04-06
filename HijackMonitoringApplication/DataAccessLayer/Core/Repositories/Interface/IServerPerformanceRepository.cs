@@ -1,4 +1,5 @@
-﻿using HijackMonitoringApplication.DataAccessLayer.Entities.GeneralData;
+﻿using HijackMonitoringApplication.DataAccessLayer.Entities;
+using HijackMonitoringApplication.DataAccessLayer.Entities.GeneralData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,5 +9,5 @@ namespace HijackMonitoringApplication.DataAccessLayer.Core.Repositories.Interfac
 {
 	public interface IServerPerformanceRepository<T> : IRepository<T> where T : IPersistenceEntities
 	{
-	}
+    }
 }

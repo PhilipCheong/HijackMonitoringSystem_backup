@@ -18,6 +18,7 @@ namespace Performance_Monitoring
 
 			while (true)
 			{
+                Console.WriteLine($"{DateTime.Now.ToLocalTime()} - Application Running");
 
 				var domainList = new List<DomainExaminationDto>();
 				try
