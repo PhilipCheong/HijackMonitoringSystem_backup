@@ -28,5 +28,8 @@ namespace HijackMonitoringApplication.DataAccessLayer.Entities
         public string Image { get; set; }
         [BsonElement("PerformancesData")]
 		public List<ResponseData> PerformancesData { get; set; }
-	}
+        [BsonElement("Status")]
+        public string Status { get; set; }
+
+    }
 }

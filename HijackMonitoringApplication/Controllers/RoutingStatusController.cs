@@ -23,23 +23,73 @@ namespace HijackMonitoringApplication.Controllers
         // GET: RoutingSatus
         public ActionResult Index()
         {
-            var allResult = _serverPerformanceService.GetAll().Where(s => !string.IsNullOrEmpty(s.Province)).OrderByDescending(p => p.ModifyDate);
+            var nullRecord = _serverPerformanceService.Find(s => s.Province == null || s.Isp == null);
 
-            var servers = allResult.Select(s => new { s.Province, s.Isp }).Distinct().ToList();
+            var allData = _serverPerformanceService.GetAll();
+
+            if (nullRecord.Any())
+            {
+                foreach (var delete in nullRecord)
+                {
+                    _serverPerformanceService.Remove(delete.Id);
+                }
+                DataForAnalysisService _dataForAnalysisService = new DataForAnalysisService();
+                var data = _dataForAnalysisService.Find(s => s.Province == null || s.Isp == null);
+                if (data.Any())
+                {
+                    foreach (var dat in data)
+                    {
+                        _dataForAnalysisService.Remove(dat.Id);
+                    }
+                }
+                SummarizedDataService _summarizedDataService = new SummarizedDataService();
+                var summarized = _summarizedDataService.Find(s => s.Province == null || s.Isp == null);
+                if (summarized.Any())
+                {
+                    foreach (var sum in summarized)
+                    {
+                        _summarizedDataService.Remove(sum.Id);
+                    }
+                }
+            }
+            var allResult = allData.Where(s => !string.IsNullOrEmpty(s.Province)).OrderByDescending(p => p.ModifyDate);
+
+            string[] province = new string[4] { "Beijing", "Chongqing", "Guangdong", "Huzhou" };
+            string[] isp = new string[3] { "Telecom", "Mobile", "Unicom" };
 
             var returnList = new List<ServerStatusViewModel>();
 
-            foreach (var status in servers)
+            for (var i = 0; i < province.Count(); i++)
             {
-                var lastData = allResult.FirstOrDefault(s => s.Province.Equals(status.Province) && s.Isp.Equals(status.Isp));
-                var serverStatus = new ServerStatusViewModel()
+                for (var p = 0; p < isp.Count(); p++)
                 {
-                    Province = status.Province,
-                    Isp = status.Isp,
-                    LastExecution = lastData.ModifyDate.Value.ToLocalTime(),
-                    Status = lastData.ModifyDate.Value > DateTime.UtcNow.AddMinutes(-5) ? "Success" : "Failed"
-                };
-                returnList.Add(serverStatus);
+
+                    var lastData = allResult.FirstOrDefault(s => s.Province.Equals(province[i]) && s.Isp.Equals(isp[p]));
+                    if (lastData != null)
+                    {
+                        var serverStatus = new ServerStatusViewModel()
+                        {
+                            Province = province[i],
+                            Isp = isp[p],
+                            LastExecution = lastData.ModifyDate.Value.ToLocalTime(),
+                            Status = lastData.ModifyDate.Value > DateTime.UtcNow.AddMinutes(-5) ? "Success" : "Failed"
+                        };
+                        returnList.Add(serverStatus);
+                    }
+                    else
+                    {
+
+                        var serverStatus = new ServerStatusViewModel()
+                        {
+                            Province = province[i],
+                            Isp = isp[p],
+                            LastExecution = new DateTime(1970, 1, 1, 0, 0, 0),
+                            Status = "Failed"
+                        };
+                        returnList.Add(serverStatus);
+
+                    }
+                }
             }
 
             return View(returnList.OrderBy(s => s.Province).ThenBy(p => p.Status).ToList());
@@ -97,7 +147,7 @@ namespace HijackMonitoringApplication.Controllers
         {
             var now = DateTime.UtcNow;
             dynamic returnList = new ExpandoObject();
-            now = now.AddHours(-100).AddMinutes(-now.Minute).AddSeconds(-now.Second).AddMilliseconds(-now.Millisecond);
+            now = now.AddHours(-2).AddMinutes(-now.Minute).AddSeconds(-now.Second).AddMilliseconds(-now.Millisecond);
 
             var monitoringDomain = _domainExaminationService.Find(s => s.Status == 1 && s.ToStartTime <= now && s.ToEndTime >= now && s.TestType.Contains("2"));
 
@@ -153,6 +203,16 @@ namespace HijackMonitoringApplication.Controllers
                     }
                     returnList.Domain = returnData.ToList();
                 }
+            }
+            else
+            {
+                returnData.Add(new AlertModel()
+                {
+                    ServerCname = "Non-Alert",
+                    ProvinceIsp = "Non_Alert",
+                    AlertDetail = new List<AlertInformation>()
+                });
+                returnList.Domain = returnData.ToList();
             }
             returnData.Clear();
             if (alert.Any())

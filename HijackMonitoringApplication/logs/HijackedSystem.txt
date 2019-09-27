@@ -1933,3 +1933,225 @@ ERROR 2019-02-11 17:23:32,356 165703ms BaseController
  SummaryTable       - System.NullReferenceException: Object reference not set to an instance of an object.
    at HijackMonitoringApplication.Controllers.ServerExaminationController.SummaryTable(IOrderedEnumerable`1 summarizedData) in D:\HijackMonitoringSystem\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\ServerExaminationController.cs:line 310
  
+ERROR 2019-04-08 18:28:57,504 158494ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-04-08 18:28:57,812 158801ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-04-08 18:28:57,875 158865ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-04-09 10:20:11,395  5535ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-04-09 10:20:11,741  5881ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-04-09 10:20:13,189  7329ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-04-09 10:20:56,232 50372ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-04-09 10:20:56,615 50755ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-04-09 10:20:58,225 52365ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-04-09 10:49:56,557  5428ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-04-09 10:49:56,887  5758ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-04-09 10:49:58,363  7234ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-04-09 10:55:56,906  5791ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-04-09 10:55:57,310  6196ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-04-09 10:55:58,686  7571ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-04-09 10:57:33,390  4801ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-04-09 10:57:33,823  5234ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-04-09 10:57:35,188  6599ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-04-09 11:17:55,156  5281ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-04-09 11:17:55,550  5675ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-04-09 11:17:56,971  7096ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-04-09 11:23:11,871  4240ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-04-09 11:23:12,203  4572ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-04-09 11:23:13,705  6074ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-04-09 12:19:33,672  5134ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-04-09 12:19:33,962  5424ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-04-09 12:19:35,493  6955ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-09-03 14:28:51,140 13962ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-09-03 14:28:51,407 14229ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-09-03 14:28:53,004 15826ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-09-03 14:29:08,406 31228ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-09-03 14:36:24,256  4670ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-09-03 14:36:24,569  4983ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-09-03 14:36:26,060  6474ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
+ERROR 2019-09-27 14:53:06,663  8611ms BaseController         
+ IspPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 113
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForUser(List`1 domainList) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 125
+   at HijackMonitoringApplication.Controllers.HomeController.IspPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 136
+ 
+ERROR 2019-09-27 14:53:07,133  9081ms BaseController         
+ PercentageResult   - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.PercentageResult(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 104
+ 
+ERROR 2019-09-27 14:53:08,499 10447ms BaseController         
+ MapPopulation      - System.NullReferenceException: Object reference not set to an instance of an object.
+   at HijackMonitoringApplication.DataAccessLayer.Core.Repositories.HijackingTestResultRepository`1.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\DataAccessLayer\Core\Repositories\HijackingTestResultRepository.cs:line 95
+   at HijackMonitoringApplication.BusinessLayer.Services.IndependentServices.HijackingTestResultService.GetAllForAdminOnly() in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\BusinessLayer\Services\IndependentServices\HijackingTestResultService.cs:line 111
+   at HijackMonitoringApplication.Controllers.HomeController.MapPopulation(String customerId) in D:\Sourcecode\HijackMonitoringSystem\HijackMonitoringApplication\Controllers\HomeController.cs:line 56
+ 
